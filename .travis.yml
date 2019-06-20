@@ -3,8 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build - sergiomasellis/react-test -f ./client/Dockerfile.dev ./client
-  -
+  - docker build -t sergiomasellis/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run sergiomasellis/react-test npm test -- --coverage
@@ -17,3 +16,7 @@ after_success:
 
   # login to dockerhub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push  sergiomasellis/multi-client
+  - docker push  sergiomasellis/multi-nginxs
+  - docker push  sergiomasellis/multi-servers
+  - docker push  sergiomasellis/multi-workers
