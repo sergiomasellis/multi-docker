@@ -17,6 +17,6 @@ after_success:
   # login to dockerhub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push  sergiomasellis/multi-client
-  - docker push  sergiomasellis/multi-nginxs
-  - docker push  sergiomasellis/multi-servers
-  - docker push  sergiomasellis/multi-workers
+  - docker push  sergiomasellis/multi-nginx
+  - docker push  sergiomasellis/multi-server
+  - docker push  sergiomasellis/multi-worker
